@@ -1,0 +1,41 @@
+{
+  "name": "babel-plugin-transform-ternary-to-if-else",
+  "version": "1.0.0",
+  "description": "Transform ternary expressions into if-else statements.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint *.js bpm server server-public server-registry test test-db",
+    "lint:fix": "eslint *.js bpm server server-public server-registry test test-db --fix",
+    "test": "jest --config=./.jest.json",
+    "test:cov": "jest --config=./.jest.json --coverage",
+    "test:debug": "node --inspect-brk ./node_modules/.bin/jest --config=./.jest.json -i --env jest-environment-node-debug",
+    "precommit": "npm run lint && npm run test:cov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenGG/babel-plugin-transform-ternary-to-if-else.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OpenGG/babel-plugin-ternary-to-if-else/issues"
+  },
+  "homepage": "https://github.com/OpenGG/babel-plugin-ternary-to-if-else#readme",
+  "keywords": [
+    "babel-plugin"
+  ],
+  "author": "OpenGG<liy099@gmail.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "babel-template": "^6.24.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-opengg": "^1.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-no-async-without-await": "^1.2.0",
+    "husky": "^0.13.3",
+    "jest": "^20.0.0",
+    "jest-environment-node-debug": "^2.0.0",
+    "pify": "^2.3.0"
+  }
+}
