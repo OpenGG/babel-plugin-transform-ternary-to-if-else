@@ -1,6 +1,10 @@
 # babel-plugin-transform-ternary-to-if-else
 Transform ternary operators (conditional expressions) into if-else statements
 
+## Demo
+
+[Live demo](https://opengg.github.io/babel-plugin-transform-ternary-to-if-else/)
+
 ## Example
 
 **In**
