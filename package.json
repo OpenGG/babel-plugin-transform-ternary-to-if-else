@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-transform-ternary-to-if-else",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Transform ternary expressions into if-else statements.",
   "main": "index.js",
   "scripts": {
