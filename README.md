@@ -1,5 +1,9 @@
 # babel-plugin-transform-ternary-to-if-else
-Transform ternary operators (conditional expressions) into if-else statements
+
+[![Build Status](https://travis-ci.org/OpenGG/babel-plugin-transform-ternary-to-if-else.svg?branch=master)](https://travis-ci.org/OpenGG/babel-plugin-transform-ternary-to-if-else)
+[![Coverage Status](https://coveralls.io/repos/github/OpenGG/babel-plugin-transform-ternary-to-if-else/badge.svg?branch=master)](https://coveralls.io/github/OpenGG/babel-plugin-transform-ternary-to-if-else?branch=master)
+
+Transform ternary operators (conditional expressions) into if-else statements.
 
 ## Demo
 
