@@ -4,10 +4,12 @@
   "description": "Transform ternary expressions into if-else statements.",
   "main": "index.js",
   "scripts": {
+    "prelint": "eclint check * test/**/*",
     "lint": "eslint *.js test docs/*.js",
     "lint:fix": "eslint *.js test docs/*.js --fix",
-    "test": "jest --config=./.jest.json",
-    "test:cov": "jest --config=./.jest.json --coverage",
+    "pretest": "npm run lint",
+    "test": "jest --config=./.jest.json --coverage",
+    "test:only": "jest --config=./.jest.json",
     "test:debug": "node --inspect-brk ./node_modules/.bin/jest --config=./.jest.json -i --env jest-environment-node-debug",
     "precommit": "npm run lint && npm run test:cov",
     "build:docs": "cd docs && npm run build"
@@ -30,8 +32,9 @@
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
+    "eclint": "^2.1.0",
     "eslint": "^3.19.0",
-    "eslint-config-opengg": "^1.0.0",
+    "eslint-config-opengg": "^2.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-no-async-without-await": "^1.2.0",
     "husky": "^0.13.3",
