@@ -4,7 +4,6 @@
   "description": "Transform ternary expressions into if-else statements.",
   "main": "index.js",
   "scripts": {
-    "prelint": "eclint check * test/**/*",
     "lint": "eslint *.js test docs/*.js",
     "lint:fix": "eslint *.js test docs/*.js --fix",
     "pretest": "npm run lint",
@@ -33,7 +32,6 @@
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
-    "eclint": "^2.1.0",
     "eslint": "^3.19.0",
     "eslint-config-opengg": "^2.0.0",
     "eslint-plugin-import": "^2.2.0",
