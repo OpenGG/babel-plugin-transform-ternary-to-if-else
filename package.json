@@ -29,18 +29,18 @@
   "author": "OpenGG<liy099@gmail.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "babel-template": "^6.24.1"
+    "babel-template": "^6.26.0"
   },
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "eclint": "^2.1.0",
-    "eslint": "^3.19.0",
-    "eslint-config-opengg": "^2.0.0",
-    "eslint-plugin-import": "^2.2.0",
+    "babel-core": "^6.26.3",
+    "eclint": "^2.8.1",
+    "eslint": "^8.8.0",
+    "eslint-config-opengg": "^4.0.0",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-no-async-without-await": "^1.2.0",
-    "husky": "^0.13.3",
-    "jest": "^20.0.0",
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
     "jest-environment-node-debug": "^2.0.0",
-    "pify": "^3.0.0"
+    "pify": "^5.0.0"
   }
 }
