@@ -21,7 +21,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
+      - name: upgrade yarn
+        run: npm install yarn@latest -g
+
       - uses: borales/actions-yarn@v2.3.0
         with:
           cmd: up # will run `yarn up` command
