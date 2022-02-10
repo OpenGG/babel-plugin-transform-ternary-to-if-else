@@ -3,5 +3,8 @@ module.exports = {
     node: true,
     browser: true,
   },
+  parserOptions: {
+    ecmaVersion: 'latest',
+  },
   extends: 'opengg',
 };

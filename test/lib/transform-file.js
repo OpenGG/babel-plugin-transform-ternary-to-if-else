@@ -1,17 +1,8 @@
-const {
-  transformFile,
-} = require('babel-core');
+import babel from '@babel/core';
 
-const pify = require('pify');
+const transform = (path, opts) => babel.transformFileAsync(
+  path,
+  opts
+);
 
-const transformFilePromise =
-  pify(transformFile);
-
-const transform =
-  (path, opts) =>
-  transformFilePromise(
-    path,
-    opts
-  );
-
-module.exports = transform;
+export default transform;

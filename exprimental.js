@@ -3,15 +3,14 @@
  * cant guarantee execution order, dont use it.
  */
 
-const babelTemplate = require('babel-template');
+import babelTemplate from './lib/template';
 
-module.exports = ({
+const convert = ({
   types,
 }) => {
   const templates = {
     testTernary:
-      () =>
-      babelTemplate(`
+      () => babelTemplate(`
 var UID = TEST;
 if (UID) {
   CONSEQUENT;
@@ -19,16 +18,14 @@ if (UID) {
   ALTERNATE;
 }`),
     testNonTernary:
-      () =>
-      babelTemplate(`
+      () => babelTemplate(`
 if (TEST) {
   CONSEQUENT;
 } else {
   ALTERNATE;
 }`),
     testTernaryRet:
-      () =>
-      babelTemplate(`
+      () => babelTemplate(`
 var UID = TEST;
 var RET;
 if (UID) {
@@ -37,8 +34,7 @@ if (UID) {
   RET = ALTERNATE;
 }`),
     testNonTernaryRet:
-      () =>
-      babelTemplate(`
+      () => babelTemplate(`
 var RET;
 if (TEST) {
   RET = CONSEQUENT;
@@ -70,47 +66,37 @@ if (TEST) {
           },
         } = path;
 
-        const statement =
-          path
+        const statement = path
           .getStatementParent();
 
-        const parent =
-          path.findParent(
-            p =>
-            !p.isConditionalExpression()
-          );
+        const parent = path.findParent(
+          p => !p.isConditionalExpression()
+        );
 
-        const testTernary =
-          types
+        const testTernary = types
           .isConditionalExpression(test);
 
-        const expressionStatement =
-          parent.isExpressionStatement();
+        const expressionStatement = parent.isExpressionStatement();
 
-        const UID =
-          testTernary ?
-          scope
-          .generateUidIdentifier('test') :
-          null;
+        const UID = testTernary
+          ? scope
+            .generateUidIdentifier('test')
+          : null;
 
-        const RET =
-          expressionStatement ?
-          null :
-          scope
-          .generateUidIdentifier('case');
+        const RET = expressionStatement
+          ? null
+          : scope
+            .generateUidIdentifier('case');
 
-        const prefix =
-          testTernary ?
-          'testTernary' :
-          'testNonTernary';
+        const prefix = testTernary
+          ? 'testTernary'
+          : 'testNonTernary';
 
-        const suffix =
-          expressionStatement ?
-          '' :
-          'Ret';
+        const suffix = expressionStatement
+          ? ''
+          : 'Ret';
 
-        const key =
-          `${prefix}${suffix}`;
+        const key = `${prefix}${suffix}`;
 
         const opts = {
           UID,
@@ -135,3 +121,5 @@ if (TEST) {
 
   return Plugin;
 };
+
+export default convert;

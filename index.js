@@ -1,4 +1,4 @@
-const babelTemplate = require('babel-template');
+import babelTemplate from './lib/template';
 
 /*
  * Ternary operator is part of conditional
@@ -16,9 +16,8 @@ const babelTemplate = require('babel-template');
  * to IIFEs.
  *
  */
-module.exports = () => {
-  const template =
-    babelTemplate(`
+const convert = () => {
+  const template = babelTemplate(`
 (function(){
   if (TEST) {
     return CONSEQUENT;
@@ -51,3 +50,5 @@ module.exports = () => {
 
   return Plugin;
 };
+
+export default convert;

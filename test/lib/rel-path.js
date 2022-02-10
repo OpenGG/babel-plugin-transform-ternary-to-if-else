@@ -1,7 +1,5 @@
-const {
-  join,
-} = require('path');
+import { URL } from 'url';
 
-module.exports = base =>
-  (...paths) =>
-  join(base, ...paths);
+const relPath = base => (...paths) => new URL(paths.join('/'), base);
+
+export default relPath;

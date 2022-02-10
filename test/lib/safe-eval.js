@@ -1,29 +1,25 @@
-const {
+import {
   Script,
   createContext,
-} = require('vm');
+} from 'vm';
 
 /*
  * Well, not 100% safe, but safe enough for
  * our test cases.
  */
-const safeEval =
-  (code, env) => {
-    const sandbox =
-      Object.assign(
-        Object.create(null),
-        env
-      );
+const safeEval = (code, env) => {
+  const sandbox = Object.assign(
+    Object.create(null),
+    env
+  );
 
-    const script =
-      new Script(code);
+  const script = new Script(code);
 
-    const context =
-      createContext(sandbox);
+  const context = createContext(sandbox);
 
-    script.runInContext(context);
+  script.runInContext(context);
 
-    return sandbox;
-  };
+  return sandbox;
+};
 
-module.exports = safeEval;
+export default safeEval;

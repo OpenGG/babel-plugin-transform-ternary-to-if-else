@@ -1,15 +1,18 @@
-const Path = require('./lib/rel-path');
+import {
+  expect,
+} from 'chai';
 
-const readCases = require('./lib/read-cases');
+import Path from './lib/rel-path';
 
-const transform = require('./lib/transform-file');
+import readCases from './lib/read-cases';
 
-const readFile = require('./lib/read-file');
+import transform from './lib/transform-file';
 
-const safeEval = require('./lib/safe-eval');
+import readFile from './lib/read-file';
 
-const relPath =
-  Path(__dirname);
+import safeEval from './lib/safe-eval';
+
+const relPath = Path(import.meta.url);
 
 const cases = readCases(
   relPath('cases')
@@ -18,14 +21,13 @@ const cases = readCases(
 const babelrc = relPath('.babelrc');
 
 cases.forEach(
-  name =>
-  it(
+  name => it(
     name,
     async () => {
       const [transformed, compare] = await Promise.all([
         transform(
-          relPath(`cases/${name}/input.js`), {
-            extends: babelrc,
+          relPath(`cases/${name}/input.js`).pathname, {
+            extends: babelrc.pathname,
           }
         ),
         readFile(
@@ -34,7 +36,7 @@ cases.forEach(
       ]);
 
       expect(transformed.code)
-        .toBe(compare.trim());
+        .to.equal(compare.trim());
 
       if (name.startsWith('execute')) {
         const {
@@ -45,10 +47,10 @@ cases.forEach(
         );
 
         expect(expected)
-          .toBe(output);
+          .to.equal(output);
 
-        expect(typeof expected)
-          .toBe('number');
+        expect(expected)
+          .to.be.a('number');
       }
     }
   )

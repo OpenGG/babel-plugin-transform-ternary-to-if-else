@@ -1,13 +1,9 @@
-const {
-  readFile,
-} = require('fs');
+import {
+  readFile as rf,
+} from 'fs/promises';
 
-const pify = require('pify');
+const readFile = path => rf(path, {
+  encoding: 'utf8',
+});
 
-const promised = pify(readFile);
-
-module.exports =
-  path =>
-  promised(path, {
-    encoding: 'utf8',
-  });
+export default readFile;

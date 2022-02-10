@@ -1,9 +1,9 @@
-const {
+import {
   readdirSync,
-} = require('fs');
+} from 'fs';
 
-module.exports =
-  path =>
-  readdirSync(
-    path
-  );
+const readCases = path => readdirSync(
+  path
+);
+
+export default readCases;
