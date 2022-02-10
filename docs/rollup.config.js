@@ -4,7 +4,7 @@ import virtual from '@rollup/plugin-virtual';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 export default {
-  input: '../index.js',
+  input: '../lib/index.js',
   output: {
     file: 'plugin.js',
     format: 'es',

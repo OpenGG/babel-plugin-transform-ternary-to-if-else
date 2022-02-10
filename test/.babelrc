@@ -1,4 +1,4 @@
 {
-  "plugins": ["../index"],
+  "plugins": ["../lib/index"],
   "compact": true
 }

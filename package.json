@@ -1,8 +1,8 @@
 {
   "name": "babel-plugin-transform-ternary-to-if-else",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Transform ternary expressions into if-else statements.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "lint": "eslint . --ext js,cjs",
     "lint:fix": "npm run lint -- --fix",
@@ -13,6 +13,9 @@
     "prepublish": "npm run test",
     "build": "cd docs && npm run build"
   },
+  "files": [
+    "lib"
+  ],
   "type": "module",
   "repository": {
     "type": "git",
