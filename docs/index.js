@@ -52,7 +52,3 @@ const main = () => {
 };
 
 main()
-  .then(
-    console.log,
-    console.error
-  );
